@@ -16,9 +16,9 @@ public class BoundedQueueV3 implements BoundedQueue {
     }
 
     @Override
-    public synchronized void put(String date) {
+    public synchronized void put(String data) {
         while (queue.size() == max) {
-            log("[put] 큐가 가득 참, 생산자 대기: " + date);
+            log("[put] 큐가 가득 참, 생산자 대기: " + data);
             try {
                 wait();  // RUNNABLE -> WAITING, 락 반납
                 log("[put] 생산자 깨어남");
@@ -27,7 +27,7 @@ public class BoundedQueueV3 implements BoundedQueue {
             }
         }
 
-        queue.offer(date);
+        queue.offer(data);
         log("[put] 생산자 데이터 저장, notify() 호출");
         notify();  // 대기 스레드, WAIT -> BLOCKED
     }

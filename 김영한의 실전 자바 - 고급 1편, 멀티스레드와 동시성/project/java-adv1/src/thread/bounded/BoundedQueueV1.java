@@ -15,13 +15,13 @@ public class BoundedQueueV1 implements BoundedQueue {
     }
 
     @Override
-    public synchronized void put(String date) {
+    public synchronized void put(String data) {
         if (queue.size() == max) {
-            log("[put] 큐가 가득 참, 버림: " + date);
+            log("[put] 큐가 가득 참, 버림: " + data);
             return;
         }
 
-        queue.offer(date);
+        queue.offer(data);
     }
 
     @Override
