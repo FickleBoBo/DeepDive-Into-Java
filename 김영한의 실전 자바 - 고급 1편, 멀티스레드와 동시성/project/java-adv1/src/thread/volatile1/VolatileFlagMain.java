@@ -20,7 +20,7 @@ public class VolatileFlagMain {
 
     static class MyTask implements Runnable {
 
-        // boolean runFlag = true;
+//        boolean runFlag = true;
         volatile boolean runFlag = true;
 
         @Override
